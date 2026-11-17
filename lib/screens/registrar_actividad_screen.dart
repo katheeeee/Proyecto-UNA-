@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/actividad.dart';
 import '../services/actividad_service.dart';
+import 'servicios_screen.dart';
 
 /// Pantalla con el formulario de registro y la lista de actividades.
 class RegistrarActividadScreen extends StatefulWidget {
@@ -78,7 +79,21 @@ class _RegistrarActividadScreenState extends State<RegistrarActividadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Registrar tarea o evaluación')),
+      appBar: AppBar(
+        title: const Text('UNA+'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.account_balance),
+            tooltip: 'Servicios universitarios',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ServiciosScreen()),
+              );
+            },
+          ),
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
